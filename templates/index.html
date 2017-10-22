@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hello</title>
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+</head>
+<body>
+uuid:   {{uid}}
+<h1>fds</h1>
+
+<!-- 
+    {% for i in range(0,10): %}
+    rinf  {{i}}
+    {%endfor%}
+
+
+{% filter upper %}
+# for c in color:
+{{c}}
+# endfor
+{% endfilter %} -->
+
+
+{% macro render_color(c) %}
+<div>This is color {{c}} </div> {{caller()}}
+{% endmacro %}
+
+{% for c in color: %}
+    {% call render_color(c) %}
+    {% endcall %}
+{% endfor %}
+
+</body>
+</html>
